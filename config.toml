@@ -1,0 +1,103 @@
+[basic]
+# 是否启用插件
+enable = true
+# 触发关键词，以此开头的消息将被转发到AI处理
+trigger_keyword = "chat"
+# 是否在群聊中自动响应被@消息
+respond_to_at = false
+# 是否允许私聊使用
+allow_private_chat = true
+# 消息处理机制说明：
+# 1. 唤醒词检测函数(priority=90)检测到触发词时，允许插件自己的后续处理函数执行
+# 2. 消息处理函数(priority=70)处理完消息后，通过返回False阻止其他插件处理
+# 这样确保只有本插件能处理以触发词开头的消息和@消息
+
+[api]
+# chargpt.ai API令牌
+api_token = ""
+# API基本URL
+base_url = "https://api.chargpt.ai"
+# 客户端版本
+client_version = "1.1.76"
+# 语言设置
+language = "zh-CN"
+
+[model]
+# 使用的AI模型（必须带有提供商前缀，例如openai/gpt-4o）
+# 可选模型：
+# OpenAI模型:
+# - openai/gpt-4o - OpenAI的GPT-4o模型
+# - openai/gpt-4o-mini - OpenAI的GPT-4o mini模型
+# - openai/gpt-4o-image - OpenAI的GPT-4o支持图像分析模型
+# - openai/o1 - OpenAI的o1模型
+# - openai/o3-mini - OpenAI的o3 mini模型
+# - openai/gpt-3.5-turbo - OpenAI的GPT-3.5 Turbo模型
+# Anthropic模型:
+# - anthropic/claude-3.5-sonnet - Anthropic的Claude 3.5 Sonnet模型
+# - anthropic/claude-3.7-sonnet - Anthropic的Claude 3.7 Sonnet模型
+# Google模型:
+# - google/gemini-2.0-pro - Google的Gemini 2.0 Pro模型
+# - google/gemini-2.0-flash - Google的Gemini 2.0 Flash模型
+# - google/gemini-2.0-pro-exp-02-05 - Google的Gemini 2.0 Pro实验版
+# - google/gemini-2.0-flash-thinking-exp-1219 - Google的Gemini 2.0 Flash思考版
+# DeepSeek模型:
+# - deepseek/deepseek-r1 - DeepSeek R1 671B模型
+# - deepseek/deepseek-chat - DeepSeek V3模型
+# - deepseek/deepseek-chat-v3-0324 - DeepSeek V3 0324版本
+# X-AI模型:
+# - x-ai/grok-3 - X-AI的Grok 3模型
+# - x-ai/grok-3-reasoner - X-AI的Grok 3 Reasoner模型
+# 通义千问模型:
+# - qwen/qwq-32b - 通义千问QwQ 32B模型
+# - qwen/qwen-max - 通义千问Max模型
+default_model = "openai/gpt-4o"
+# 是否允许用户在消息中指定模型
+allow_model_selection = true
+# 模型提示词（一般情况下不需要修改，与message参数相同）
+prompt_template = "{message}"
+
+[image]
+# 图片生成功能
+enable_image_generation = true
+# 用于图片生成的默认模型
+default_image_model = "openai/gpt-4o-image"
+# 图片生成命令前缀
+image_command = "画"
+# 默认图片比例
+default_ratio = "1:1"
+# 可用比例选项: 1:1, 16:9, 9:16, 4:3, 3:4
+# 图片存储路径（相对于插件目录）
+image_save_path = "images"
+# 是否保存生成的图片到本地
+save_images = true
+# 默认网络访问设置 (open/close)
+web_access = "close"
+# 时区设置
+timezone = "Asia/Shanghai"
+
+[filter]
+# 是否启用敏感词过滤
+enable_filter = true
+# 替换敏感词为指定字符
+replace_with = "***"
+# 敏感词列表（可以自定义添加）
+sensitive_words = [
+    "敏感词1",
+    "敏感词2", 
+    "违禁词", 
+    "色情", 
+    "暴力", 
+    "政治"
+]
+# 拦截消息后的提示语
+blocked_message = "抱歉，您的消息包含敏感内容，已被拦截。请遵守社区规则和法律法规。"
+
+[chat]
+# 最大对话历史记录条数
+max_history = 10
+# 每个聊天室单独的会话上下文
+separate_context = true
+# 超时时间（秒）
+timeout = 60
+# 是否显示思考中提示
+show_thinking = true 
