@@ -1,0 +1,2 @@
+# ChargptChat
+调用DeepSider进行AI对话，适用于XYBotV2和XXXBot
